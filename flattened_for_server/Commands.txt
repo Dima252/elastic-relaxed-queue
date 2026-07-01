@@ -1,0 +1,7 @@
+Run this in the folder to compile:
+
+javac --release=8 -d out *.java
+
+Run this to get benchmark results:
+
+java -cp out MppRunner
