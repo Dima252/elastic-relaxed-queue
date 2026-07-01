@@ -247,6 +247,9 @@ System.out.printf("      final K=%d  failRate=%.1f%%%n",
 
 Expected: K=1 at 1–4 threads, growing toward 8–20 at 32+ threads.
 
+#### DONE
+But instead of printing the final K, I'm printing the final K and the maximum K that was used. The Changes were donr in the Elastic Queue class, and the Main Benchmark file.
+
 ### 2 · Tune constants for the university server (Priority: High)
 
 The values in [ElasticRelaxedQueue.java](src/queue/ElasticRelaxedQueue.java) were
@@ -257,6 +260,9 @@ chosen on a laptop. On the server adjust and re-run:
 | `HIGH_THRESHOLD` | `0.30` | `0.20` — expand sooner |
 | `CHECK_INTERVAL` | `1024` | `512` — react faster |
 | `MAX_LANES` | `64` | Physical core count of the server |
+
+#### Not Done yet 
+I flattened the folder so we could be able to run it on the server, and renamed the main benchmark file to MppRunner because it is what we are currently checking on the server. I ran some tests. with 0.2 max threshold and 512 interval the results were bad. The server fell down so i stopped.
 
 ### 3 · Write the report analysis section (Priority: High)
 
@@ -274,6 +280,7 @@ Minimum required content:
 - Explain why ERQ scales: CAS pressure is spread over K lanes; K auto-adjusts so
   the queue pays for exactly as much parallelism as the current load requires.
 
+#### Not Done yet
 
 ---
 
